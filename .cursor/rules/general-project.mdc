@@ -1,0 +1,45 @@
+---
+alwaysApply: true
+---
+# === Projektkontext ===
+# Dieses Projekt ist ein leichtgewichtiges Python-basiertes DAM-System (Flask + SQLite).
+# Es verwaltet Dateien in einem gemounteten Volume (/data), generiert Thumbnails und speichert Tags.
+
+rules:
+  - match: "*.py"
+    instructions: |
+      - Code soll mit Python 3.12 kompatibel sein.
+      - Verwende PEP8-konforme Formatierung.
+      - Bevorzuge SQLAlchemy für Datenbankzugriffe.
+      - Stelle sicher, dass alle Dateipfade mit pathlib verarbeitet werden.
+      - Nutze Flask Blueprints, wenn neue Routen hinzugefügt werden.
+      - Nutze `logging` statt `print()` für Debug-Ausgaben.
+      - Thumbnail-Generierung: prüfe zuerst auf vorhandene preview.jpg/png.
+      - Beim Scannen sollen nur bekannte Dateitypen (zip, svg, pdf, png, jpg) berücksichtigt werden.
+      - Suche nach Tags soll LIKE-Query verwenden (case-insensitive).
+
+  - match: "*.html"
+    instructions: |
+      - Verwende Jinja2 Templates.
+      - Nutze Tailwind CSS-Klassen für Layout und Farben.
+      - Erstelle responsive Karten-Layouts (grid).
+      - Füge bei Bedarf Tag-Filter über GET-Parameter hinzu (?tag=holz).
+      - Vermeide Inline-Styling.
+
+  - match: "Dockerfile"
+    instructions: |
+      - Verwende Python:3.12-slim als Basis.
+      - Stelle sicher, dass poppler-utils und librsvg2-bin installiert werden.
+      - Cache pip-Installationen nicht dauerhaft.
+
+  - match: "docker-compose.yml"
+    instructions: |
+      - Volumes sollen für /data, /app/db, /app/static/thumbnails korrekt definiert sein.
+      - Environment-Variable DATABASE_URL muss an Flask weitergegeben werden.
+      - Expose Port 8080.
+
+  - match: "README.md"
+    instructions: |
+      - Struktur: Features, Setup, Konfiguration, Architektur, Lizenz.
+      - Verwende konsistente Markdown-Hierarchie (##, ### etc.).
+      - Keine Inline-HTML-Tags, nur Markdown.

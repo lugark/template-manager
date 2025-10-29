@@ -1,0 +1,15 @@
+services:
+  lasercut_manager:
+    build: .
+    container_name: lasercut-manager
+    volumes:
+      - /path/to/your/nas/lasercut:/data:ro
+      - ./app/db:/app/db
+      - ./app/static/thumbnails:/app/static/thumbnails
+    environment:
+      - DATABASE_URL=sqlite:///app/db/data.sqlite
+      # Optional MySQL:
+      # - DATABASE_URL=mysql+pymysql://user:pass@mysql/lasercut
+    ports:
+      - "8080:8080"
+    restart: unless-stopped

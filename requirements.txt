@@ -1,0 +1,6 @@
+flask
+sqlalchemy
+pillow
+pdf2image
+cairosvg
+pymysql
