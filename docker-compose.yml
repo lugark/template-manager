@@ -3,7 +3,7 @@ services:
     build: .
     container_name: lasercut-manager
     volumes:
-      - /path/to/your/nas/lasercut:/data:ro
+      - ./data:/data:ro
       - ./app/db:/app/db
       - ./app/static/thumbnails:/app/static/thumbnails
     environment:

@@ -1,0 +1,108 @@
+/* Custom styles for Lasercut Manager */
+
+/* Additional utility classes */
+.aspect-square {
+    aspect-ratio: 1 / 1;
+}
+
+/* Smooth transitions for interactive elements */
+.asset-card {
+    transition: all 0.2s ease-in-out;
+}
+
+.asset-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Loading animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Toast notification animations */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.toast-enter {
+    animation: slideInRight 0.3s ease-out;
+}
+
+.toast-exit {
+    animation: slideOutRight 0.3s ease-in;
+}
+
+/* File type specific styling */
+.file-type-zip {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+}
+
+.file-type-svg {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.file-type-pdf {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.file-type-png,
+.file-type-jpg,
+.file-type-jpeg {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+}

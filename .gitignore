@@ -1,0 +1,9 @@
+
+app/__pycache__/
+
+app/db/*
+app/static/thumbnails/*
+
+data/*
+
+.env
